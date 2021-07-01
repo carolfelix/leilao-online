@@ -1,0 +1,8 @@
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\bin\Debug\netcoreapp3.1\LeilaoOnline.deps.json
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\bin\Debug\netcoreapp3.1\LeilaoOnline.dll
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\bin\Debug\netcoreapp3.1\LeilaoOnline.pdb
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\obj\Debug\netcoreapp3.1\LeilaoOnline.AssemblyInfoInputs.cache
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\obj\Debug\netcoreapp3.1\LeilaoOnline.AssemblyInfo.cs
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\obj\Debug\netcoreapp3.1\LeilaoOnline.csproj.CoreCompileInputs.cache
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\obj\Debug\netcoreapp3.1\LeilaoOnline.dll
+C:\Users\carolina.felix\OneDrive\Carol\projetos\LeilaoOnline\LeilaoOnline\obj\Debug\netcoreapp3.1\LeilaoOnline.pdb
