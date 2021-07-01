@@ -11,6 +11,10 @@ namespace LeilaoOnline
 
         public Lance(Interessada cliente, double valor)
         {
+            if (valor < 0)
+            {
+                 throw new System.ArgumentException("Valor não pode ser menor que 0");
+            }
             Cliente = cliente;
             Valor = valor;
         }

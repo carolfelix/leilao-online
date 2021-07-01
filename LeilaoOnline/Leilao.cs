@@ -7,8 +7,11 @@ namespace LeilaoOnline
 {
     public class Leilao
     {
+        public Interessada _ultimoCliente;
+        public IModalidadeAvaliacao _avaliador { get; set; }
         public enum EstadoLeilao
         {
+            LeilaoAntesDoPregao,
             LeilaoEmAndamento,
             LeilaoFinalizado
         }
@@ -18,33 +21,43 @@ namespace LeilaoOnline
         public Lance Ganhador { get; private set; }
         public EstadoLeilao Estado { get; private set; }
 
-
-        public Leilao(string peca)
+        public Leilao(string peca, IModalidadeAvaliacao avaliador)
         {
             Peca = peca;
             _lances = new List<Lance>();
-            Estado = EstadoLeilao.LeilaoEmAndamento;
+            Estado = EstadoLeilao.LeilaoAntesDoPregao;
+            _avaliador = avaliador;
         }
 
+        private bool NovoLanceEhAceito(Interessada cliente, double valor)
+        {
+            return (Estado == EstadoLeilao.LeilaoEmAndamento)
+                && (cliente != _ultimoCliente);
+        }
         public void RecebeLance(Interessada cliente, double valor)
         {
-            if (Estado == EstadoLeilao.LeilaoEmAndamento)
+            if (NovoLanceEhAceito(cliente, valor))
             {
                 _lances.Add(new Lance(cliente, valor));
+                _ultimoCliente = cliente;
             }
         }
 
         public void IniciaPregao()
         {
+            Estado = EstadoLeilao.LeilaoEmAndamento;
 
         }
 
         public void TerminaPregao()
         {
-            Ganhador = Lances
-                .DefaultIfEmpty(new Lance(null, 0 ))
-                .OrderBy(l => l.Valor)
-                .LastOrDefault();
+            if (Estado != EstadoLeilao.LeilaoEmAndamento)
+            {
+                throw new InvalidOperationException("Não é possível terminar pregrão sem antes inicializa-lo.");
+            }
+
+            Ganhador = _avaliador.Avalia(this);
+           
             Estado = EstadoLeilao.LeilaoFinalizado;
         }
     }
